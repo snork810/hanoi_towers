@@ -75,15 +75,15 @@ def Block_move(block, s_out, s_in):
         b = s_out[-1]
         s_out.remove(b)
         s_in.append(b)
-        print(f'Перекложили {b} иЗ {s_out} в {s_in}')
+        print(f'Переложили {b} иЗ {s_out} в {s_in}')
         block_index_in = s_in.index(block)
         redraw_blocks(block, s_out, s_in)
     elif sqware(s_in[-1]) > sqware(s_out[-1]):
-        print('Переклали')
+        print('Переложили')
         b = s_out[-1]
         s_out.remove(b)
         s_in.append(b)
-        print(f'Перекложили {b} из {s_out} в {s_in}')
+        print(f'Переложили {b} из {s_out} в {s_in}')
         block_index_in = s_in.index(block)
         redraw_blocks(block, s_out, s_in)
     else:
