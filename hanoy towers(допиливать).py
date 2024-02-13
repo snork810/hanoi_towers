@@ -52,8 +52,8 @@ def redraw_blocks(block, arr_out, arr_in):
 
     pass
 
-arr1 = tr.PhotoImage(file = r"F:\PYTHON\pyton\hanoy_tower\2.png")
-arr2 =tr.PhotoImage(file = r"F:\PYTHON\pyton\hanoy_tower\98.jpg")
+arr1 = tr.PhotoImage(file = r"F:\PYTHON\pyton\hanoy_tower\strelka_vlevo.png")
+arr2 =tr.PhotoImage(file = r"F:\PYTHON\pyton\hanoy_tower\strelka_vpravo.jpg")
 
 button1 = tr.Button(window, image=arr1, command = lambda: Block_move(array_of_columns[0][-1], array_of_columns[0], array_of_columns[2])).place(x=100, y=200)
 button2 = tr.Button(window, image=arr2, command = lambda: Block_move(array_of_columns[0][-1], array_of_columns[0], array_of_columns[1])).place(x=160, y=200)
