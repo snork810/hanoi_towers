@@ -1,6 +1,5 @@
 import graphics as gr
 import tkinter as tr
-import pygame
 window = gr.GraphWin('HanoyTowers', 600, 600)
 
 running = True
@@ -23,6 +22,7 @@ array_of_columns = [[block1,block2,block3], [], []]
 
 
 def block_color(block):
+    '''сохраняет цвет каждого блока основываясь на его площади. пригодится для реализации переотрисовки'''
     if sqware(block) == 2000.0:
         return 'red'
     elif sqware(block) == 1000.0:
@@ -32,6 +32,8 @@ def block_color(block):
 
 
 def redraw_blocks(block, arr_out, arr_in):
+    '''движение блоков. пока реализовано через встроенную функцию move библиотеки graphics. основывается на идексе подмассива,
+    в котором находится блок внутри двумерного массива array_of_columns '''
     if array_of_columns.index(arr_out) == 2 and array_of_columns.index(arr_in) == 0:
         block.setFill('white')
         block.move(-300, 0)
@@ -50,7 +52,6 @@ def redraw_blocks(block, arr_out, arr_in):
         block.move(150, 0)
         block.setFill(block_color(block))
 
-    pass
 
 arr1 = tr.PhotoImage(file = r"F:\PYTHON\pyton\hanoy_tower\strelka_vlevo.png")
 arr2 =tr.PhotoImage(file = r"F:\PYTHON\pyton\hanoy_tower\strelka_vpravo.jpg")
@@ -64,10 +65,14 @@ button6 = tr.Button(window, image=arr2, command = lambda: Block_move(array_of_co
 
 
 def sqware(block):
+    ''' возвращает площадь каждого блока. пригождается для идентификации блоков в массиве. можно попробовать реализовать идетификацию
+    через последний символ в названии (block1, block2, block3) но это будет выглядеть хуже как по мне'''
     return abs(block.p2.x-block.p1.x)*abs(block.p2.y-block.p1.y)
 
 
 def Block_move(block, s_out, s_in):
+    '''функция из консольной версии, отвечающая за перемещение блоков внутри двумерного массива, и на основе этого действия при перемещении
+    вызывающая функцию переотрисовки'''
     block_index_out = s_out.index(block)
     if not s_out:
         print('Нечего перекладывать!')
